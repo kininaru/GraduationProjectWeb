@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -6,9 +7,9 @@ class MainPage extends React.Component {
     }
 
     render() {
-        return "main page" + this.props.account
+        if (this.props.account === null) return <Link to={"/login"}>Login</Link>
+        return "main page"
     }
-    //<Link to={"/login"}>Login</Link>
 }
 
 export default MainPage
