@@ -1,9 +1,13 @@
-import { Link } from "react-router-dom"
+import React, { Component } from "react"
 
-import { notificationChannel } from '../utils/Notification'
+class MainPage extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-const MainPage = () => {
-    return <button onClick={() => notificationChannel.insert("ok", "test")}>test</button>
+    render() {
+        return "main page" + this.props.account
+    }
     //<Link to={"/login"}>Login</Link>
 }
 
