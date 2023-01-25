@@ -1,4 +1,14 @@
-// type = ok, info, warning, error
+import { notification } from 'antd';
+
+export const openNotification = (title, msg) => {
+  notification.open({
+    message: title,
+    description: msg,
+    onClick: () => {
+      
+    },
+  })
+}
 
 class Notification {
     constructor(type, msg) {

@@ -7,7 +7,6 @@ import {
 import { fetchAccount } from "./server/Account"
 import LoginPage from "./pages/LoginPage"
 import MainPage from "./pages/MainPage"
-import NotificationHandler from './components/NotificationHandler'
 
 class App extends React.Component {
     constructor(props) {
@@ -23,7 +22,6 @@ class App extends React.Component {
 
     render() {
         return <div>
-            <NotificationHandler />
             <RouterProvider router={createBrowserRouter([
                 {
                     path: "/",
