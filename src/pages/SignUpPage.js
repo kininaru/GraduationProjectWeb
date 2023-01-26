@@ -4,8 +4,10 @@ import { Button, Checkbox, Form, Input, Select } from 'antd'
 import { fetchOrganizations } from "../server/Organization"
 import { postServer } from "../server/Server"
 import { toFormData } from "../utils/Data"
+import { openNotification } from "../utils/Notification"
+import { withRouter } from "react-router-dom"
 
-class LoginPage extends React.Component {
+class SignUpPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -19,7 +21,8 @@ class LoginPage extends React.Component {
 
     onFinish(values) {
         postServer("/api/sign-up", toFormData(values)).then(resp => {
-            alert(resp.data.name)
+            if (resp.code !== 0) openNotification("错误", resp.msg)
+            else this.props.history.push("/")
         })
     }
 
@@ -38,7 +41,7 @@ class LoginPage extends React.Component {
             initialValues={{
                 remember: true,
             }}
-            onFinish={this.onFinish}
+            onFinish={v => this.onFinish(v)}
             autoComplete="off"
         >
             <Form.Item
@@ -98,4 +101,4 @@ class LoginPage extends React.Component {
     }
 }
 
-export default LoginPage
+export default withRouter(SignUpPage)

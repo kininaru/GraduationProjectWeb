@@ -7,6 +7,7 @@ export const getServer = async (path, body, headers) => {
         method: "GET",
         headers: headers,
         body: body,
+        credentials: "include",
     })
 
     return await r.json()
@@ -17,6 +18,7 @@ export const postServer = async (path, body, headers) => {
         method: "POST",
         headers: headers,
         body: body,
+        credentials: "include",
     })
 
     return await r.json()
