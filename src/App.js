@@ -8,6 +8,7 @@ import { openNotification } from "./utils/Notification"
 import SignUpPage from "./pages/SignUpPage"
 import SignInPage from "./pages/SignInPage"
 import AccountPage from "./pages/AccountPage"
+import ResourcePage from "./pages/ResourcePage"
 
 const { Header, Content, Footer } = Layout
 class App extends React.Component {
@@ -42,6 +43,12 @@ class App extends React.Component {
           onClick: () => {
             this.props.history.push("/account")
           }
+        }, {
+          key: "物资",
+          label: "物资",
+          onClick: () => {
+            this.props.history.push("/resource")
+          }
         }]}
       />
       <Content style={{ padding: '50px', float: 'center' }}>
@@ -54,6 +61,7 @@ class App extends React.Component {
             })
           }}/>} />
           <Route exact path="/account" render={() => <AccountPage account={this.state.account}/>} />
+          <Route exact path="/resource" component={ResourcePage} />
         </Switch>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
