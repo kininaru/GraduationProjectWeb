@@ -9,6 +9,7 @@ import SignUpPage from "./pages/SignUpPage"
 import SignInPage from "./pages/SignInPage"
 import AccountPage from "./pages/AccountPage"
 import ResourcePage from "./pages/ResourcePage"
+import RecordPage from "./pages/RecordPage"
 
 const { Header, Content, Footer } = Layout
 class App extends React.Component {
@@ -44,14 +45,26 @@ class App extends React.Component {
             this.props.history.push("/account")
           }
         }, {
-          key: "物资",
-          label: "物资",
+          key: "申报物资",
+          label: "申报物资",
           onClick: () => {
             this.props.history.push("/resource")
           }
+        }, {
+          key: "申报记录",
+          label: "申报记录",
+          onClick: () => {
+            this.props.history.push("/record")
+          }
+        }, {
+          key: "通知",
+          label: "通知",
+          onClick: () => {
+            this.props.history.push("/notification")
+          }
         }]}
       />
-      <Content style={{ padding: '50px', float: 'center' }}>
+      <Content style={{ padding: '50px', float: 'center', background: 'white' }}>
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/sign-up" component={SignUpPage} />
@@ -62,9 +75,9 @@ class App extends React.Component {
           }}/>} />
           <Route exact path="/account" render={() => <AccountPage account={this.state.account}/>} />
           <Route exact path="/resource" component={ResourcePage} />
+          <Route exact path="/record" render={() => <RecordPage account={this.state.account}/>} />
         </Switch>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>
   }
 }
