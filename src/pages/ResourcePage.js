@@ -7,6 +7,9 @@ import { openNotification } from "../utils/Notification"
 class ResourcePage extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            requesting: false,
+        }
     }
 
     render() {
@@ -23,9 +26,13 @@ class ResourcePage extends React.Component {
             }}
             onFinish={v => { 
                 if (v.type === 'request') v.amount = -v.amount
+                this.setState({requesting: true})
                 postServer("/api/add-record", toFormData(v)).then(resp => {
                     if (resp.code !== 0) openNotification("错误", resp.msg)
-                    else console.log(resp.data)
+                    else {
+                        openNotification("成功", "您的请求已处理")
+                        this.setState({requesting: false})
+                    }
                 })
              }}
             autoComplete="off"
@@ -55,7 +62,7 @@ class ResourcePage extends React.Component {
                     span: 16,
                 }}
             >
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" disabled={this.state.requesting}>
                     上报
                 </Button>
             </Form.Item>
