@@ -37,7 +37,7 @@ class RequestRecordPage extends React.Component {
               title: '类型',
               dataIndex: 'amount',
               key: 'type',
-              render: amount => amount > 0 ? "补充物资" : "申请物资"
+              render: () => "申请物资"
             },
             {
               title: '状态',

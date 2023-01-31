@@ -37,7 +37,13 @@ class SupplyRecordPage extends React.Component {
               title: '类型',
               dataIndex: 'amount',
               key: 'type',
-              render: amount => amount > 0 ? "补充物资" : "申请物资"
+              render: () => "补充物资"
+            },
+            {
+              title: '状态',
+              dataIndex: 'gap',
+              key: 'status',
+              render: gap => gap === 0 ? "已完成" : "剩余 " + gap + " 件待处理"
             },
           ];
           
