@@ -11,6 +11,7 @@ import AccountPage from "./pages/AccountPage"
 import ResourcePage from "./pages/ResourcePage"
 import RequestRecordPage from "./pages/RequestRecordPage"
 import SupplyRecordPage from "./pages/SupplyRecordPage"
+import NotificationPage from "./pages/NotificationPage"
 
 const { Header, Content, Footer } = Layout
 class App extends React.Component {
@@ -82,8 +83,9 @@ class App extends React.Component {
           }}/>} />
           <Route exact path="/account" render={() => <AccountPage account={this.state.account}/>} />
           <Route exact path="/resource" component={ResourcePage} />
-          <Route exact path="/request" render={() => <RequestRecordPage account={this.state.account}/>} />
-          <Route exact path="/supply" render={() => <SupplyRecordPage account={this.state.account}/>} />
+          <Route exact path="/request" component={RequestRecordPage} />
+          <Route exact path="/supply" component={SupplyRecordPage} />
+          <Route exact path="/notification" component={NotificationPage} />
         </Switch>
       </Content>
     </Layout>
