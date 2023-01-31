@@ -36,35 +36,22 @@ class AccountPage extends React.Component {
             <Form.Item
                 label="用户名"
                 name="name"
-                initialValues={this.props.account.name}
             >
-                <Input />
+                <Input defaultValue={this.props.account.name}/>
             </Form.Item>
 
             <Form.Item
                 label="密码"
                 name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: '请输入密码',
-                    },
-                ]}
             >
-                <Input.Password />
+                <Input.Password/>
             </Form.Item>
 
             <Form.Item
                 label="组织"
                 name="organization"
-                rules={[
-                    {
-                        required: true,
-                        message: '请选择你的组织',
-                    },
-                ]}
             >
-                <Input />
+                <Input defaultValue={this.props.account.organization.name}/>
             </Form.Item>
 
             <Form.Item
@@ -74,7 +61,7 @@ class AccountPage extends React.Component {
                 }}
             >
                 <Button type="primary" htmlType="submit">
-                    Submit
+                    更新
                 </Button>
             </Form.Item>
         </Form>

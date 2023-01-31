@@ -3,14 +3,14 @@ import React from "react";
 import { getServer } from "../server/Server";
 import { openNotification } from "../utils/Notification";
 
-class RecordPage extends React.Component {
+class SupplyRecordPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             records: null,
         }
 
-        getServer(`/api/get-records`).then(resp => {
+        getServer(`/api/get-supply-records`).then(resp => {
             if (resp.code !== 0) openNotification("错误", resp.msg)
             else this.setState({records: resp.data,})
         })
@@ -39,12 +39,6 @@ class RecordPage extends React.Component {
               key: 'type',
               render: amount => amount > 0 ? "补充物资" : "申请物资"
             },
-            {
-              title: '状态',
-              dataIndex: 'gap',
-              key: 'status',
-              render: gap => gap === 0 ? "已完成" : "剩余 " + gap + " 件待处理"
-            },
           ];
           
         if (this.state.records === null) return "记录加载中..."
@@ -52,4 +46,4 @@ class RecordPage extends React.Component {
     }
 }
 
-export default RecordPage
+export default SupplyRecordPage

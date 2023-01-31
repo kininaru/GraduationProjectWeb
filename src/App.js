@@ -9,7 +9,8 @@ import SignUpPage from "./pages/SignUpPage"
 import SignInPage from "./pages/SignInPage"
 import AccountPage from "./pages/AccountPage"
 import ResourcePage from "./pages/ResourcePage"
-import RecordPage from "./pages/RecordPage"
+import RequestRecordPage from "./pages/RequestRecordPage"
+import SupplyRecordPage from "./pages/SupplyRecordPage"
 
 const { Header, Content, Footer } = Layout
 class App extends React.Component {
@@ -51,10 +52,16 @@ class App extends React.Component {
             this.props.history.push("/resource")
           }
         }, {
-          key: "申报记录",
-          label: "申报记录",
+          key: "物资请求记录",
+          label: "物资请求记录",
           onClick: () => {
-            this.props.history.push("/record")
+            this.props.history.push("/request")
+          }
+        }, {
+          key: "物资补充记录",
+          label: "物资补充记录",
+          onClick: () => {
+            this.props.history.push("/supply")
           }
         }, {
           key: "通知",
@@ -75,7 +82,8 @@ class App extends React.Component {
           }}/>} />
           <Route exact path="/account" render={() => <AccountPage account={this.state.account}/>} />
           <Route exact path="/resource" component={ResourcePage} />
-          <Route exact path="/record" render={() => <RecordPage account={this.state.account}/>} />
+          <Route exact path="/request" render={() => <RequestRecordPage account={this.state.account}/>} />
+          <Route exact path="/supply" render={() => <SupplyRecordPage account={this.state.account}/>} />
         </Switch>
       </Content>
     </Layout>
