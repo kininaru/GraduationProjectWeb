@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { Button, Checkbox, Form, Input, Select } from 'antd'
 
-import { fetchOrganizations } from "../server/Organization"
-import { postServer } from "../server/Server"
+import { getServer, postServer } from "../server/Server"
 import { toFormData } from "../utils/Data"
 import { openNotification } from "../utils/Notification"
 import { withRouter } from "react-router-dom"
@@ -14,8 +13,8 @@ class SignUpPage extends React.Component {
             organizations: null,
         }
 
-        fetchOrganizations().then(orgs => {
-            this.setState({ organizations: orgs })
+        getServer("/api/get-organizations").then(resp => {
+            this.setState({organizations: resp.data})
         })
     }
 

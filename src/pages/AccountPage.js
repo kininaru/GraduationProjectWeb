@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { Button, Checkbox, Form, Input, Select } from 'antd'
 
-import { fetchOrganizations } from "../server/Organization"
-import { postServer } from "../server/Server"
+import { getServer, postServer } from "../server/Server"
 import { toFormData } from "../utils/Data"
 import { openNotification } from "../utils/Notification"
 import { withRouter } from "react-router-dom"
@@ -37,33 +36,34 @@ class AccountPage extends React.Component {
                 label="用户名"
                 name="name"
             >
-                <Input defaultValue={this.props.account.name}/>
+                {this.props.account.name}
             </Form.Item>
 
             <Form.Item
                 label="密码"
                 name="password"
             >
-                <Input.Password/>
+                <Button type="default" htmlType="submit">
+                    点击更改
+                </Button>
             </Form.Item>
 
             <Form.Item
                 label="组织"
                 name="organization"
             >
-                <Input defaultValue={this.props.account.organization.name}/>
+                { this.props.account.organization === null ? "管理员组" : this.props.account.organization.name }
             </Form.Item>
-
-            <Form.Item
-                wrapperCol={{
-                    offset: 8,
-                    span: 16,
+            <Button 
+                type="primary" 
+                htmlType="submit" 
+                style={{marginLeft: 130}}
+                onClick={() => {
+                    getServer("/api/sign-out").then(() => {
+                        window.location.href = "/"
+                    })
                 }}
-            >
-                <Button type="primary" htmlType="submit">
-                    更新
-                </Button>
-            </Form.Item>
+            > 退出登录 </Button>
         </Form>
     }
 }

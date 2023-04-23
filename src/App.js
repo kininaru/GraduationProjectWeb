@@ -12,6 +12,7 @@ import ResourcePage from "./pages/ResourcePage"
 import RequestRecordPage from "./pages/RequestRecordPage"
 import SupplyRecordPage from "./pages/SupplyRecordPage"
 import NotificationPage from "./pages/NotificationPage"
+import AdminPage from "./pages/AdminPage"
 
 const { Header, Content, Footer } = Layout
 class App extends React.Component {
@@ -70,6 +71,13 @@ class App extends React.Component {
           onClick: () => {
             this.props.history.push("/notification")
           }
+        }, {
+          key: "管理面板",
+          label: "管理面板",
+          onClick: () => {
+            this.props.history.push("/admin")
+          },
+          disabled: !this.state.account?.admin,
         }]}
       />
       <Content style={{ padding: '50px', float: 'center', background: 'white' }}>
@@ -86,6 +94,7 @@ class App extends React.Component {
           <Route exact path="/request" component={RequestRecordPage} />
           <Route exact path="/supply" component={SupplyRecordPage} />
           <Route exact path="/notification" component={NotificationPage} />
+          <Route exact path="/admin" render={() => <AdminPage account={this.state.account} />} />
         </Switch>
       </Content>
     </Layout>

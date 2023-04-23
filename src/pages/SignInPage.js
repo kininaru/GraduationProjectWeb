@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { Button, Checkbox, Form, Input, Select } from 'antd'
 
-import { fetchOrganizations } from "../server/Organization"
 import { postServer } from "../server/Server"
 import { toFormData } from "../utils/Data"
 import { openNotification } from "../utils/Notification"
