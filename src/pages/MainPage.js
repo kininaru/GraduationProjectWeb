@@ -7,7 +7,6 @@ class MainPage extends React.Component {
   }
 
   render() {
-    if (this.props.account === null) return <Link to={"/login"}>Login</Link>
     return "main page"
   }
 }
