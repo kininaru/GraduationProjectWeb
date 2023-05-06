@@ -21,7 +21,7 @@ class SignUpPage extends React.Component {
   onFinish(values) {
     postServer("/api/sign-up", toFormData(values)).then(resp => {
       if (resp.code !== 0) openNotification("错误", resp.msg)
-      else this.props.history.push("/")
+      else alert("您的 id 是：" + resp.data.id + "，请牢记！")
     })
   }
 

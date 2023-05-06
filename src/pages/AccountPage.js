@@ -12,9 +12,15 @@ class AccountPage extends React.Component {
   }
 
   render() {
-    if (this.props.account === null) return <Button onClick={() => {
-      this.props.history.push("/sign-in")
-    }}>登录</Button>
+    if (this.props.account === null) return <div>
+      <Button onClick={() => {
+        this.props.history.push("/sign-in")
+      }}>登录</Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button onClick={() => {
+        this.props.history.push("/sign-up")
+      }}>注册</Button>
+    </div>
     return <Form
       name="basic"
       labelCol={{
