@@ -26,7 +26,7 @@ class RequestRecordPage extends React.Component {
   }
 
   render() {
-    const columns = [{
+    let columns = [{
       title: '时间',
       dataIndex: 'timestamp',
       key: 'timestamp',
@@ -49,8 +49,7 @@ class RequestRecordPage extends React.Component {
       dataIndex: 'gap',
       key: 'status',
       render: gap => gap === 0 ? "已完成" : "剩余 " + gap + " 件待处理"
-    }]
-    let config = {
+    }], config = {
       data: this.state.summary,
       xField: "day",
       yField: "value",
