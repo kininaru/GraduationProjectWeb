@@ -88,11 +88,11 @@ class App extends React.Component {
             this.setState({
               account: account
             })
-          }}/>} />
-          <Route exact path="/account" render={() => <AccountPage account={this.state.account}/>} />
+          }} />} />
+          <Route exact path="/account" render={() => <AccountPage account={this.state.account} />} />
           <Route exact path="/resource" component={ResourcePage} />
-          <Route exact path="/request" component={RequestRecordPage} />
-          <Route exact path="/supply" component={SupplyRecordPage} />
+          <Route exact path="/request" render={() => <RequestRecordPage account={this.state.account} />} />
+          <Route exact path="/supply" render={() => <SupplyRecordPage account={this.state.account} />} />
           <Route exact path="/notification" component={NotificationPage} />
           <Route exact path="/admin" render={() => <AdminPage account={this.state.account} />} />
         </Switch>
