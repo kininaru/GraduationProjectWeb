@@ -26,7 +26,8 @@ class SignUpPage extends React.Component {
   }
 
   render() {
-    return <Form
+    return <div>
+      <Form
       name="basic"
       labelCol={{
         span: 8,
@@ -97,6 +98,16 @@ class SignUpPage extends React.Component {
         </Button>
       </Form.Item>
     </Form>
+    <div style={{ width: "80%", marginLeft: "100px", marginTop: "50px" }}>
+        <div />
+        <h1>注册</h1>
+        <hr />
+        <p>1. 注册成功时，页面会显示您的 uid</p>
+        <p>2. 请牢记 uid，该 uid 会用于登录</p>
+        <p>3. 注册时请选择您所属的组织</p>
+        <p>4. 若没有您所属的组织，请联系管理员添加</p>
+      </div>
+    </div>
   }
 }
 

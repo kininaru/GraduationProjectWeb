@@ -13,13 +13,20 @@ class AccountPage extends React.Component {
 
   render() {
     if (this.props.account === null) return <div>
-      <Button onClick={() => {
+      <div style={{ width: "80%" }}><Button onClick={() => {
         this.props.history.push("/sign-in")
       }}>登录</Button>
-      &nbsp;&nbsp;&nbsp;
-      <Button onClick={() => {
-        this.props.history.push("/sign-up")
-      }}>注册</Button>
+        &nbsp;&nbsp;&nbsp;
+        <Button onClick={() => {
+          this.props.history.push("/sign-up")
+        }}>注册</Button></div>
+      <div style={{ width: "80%", marginLeft: "100px", marginTop: "50px" }}>
+        <div />
+        <h1>登录</h1>
+        <hr />
+        <p>1. 请使用注册时返回的 uid 进行登录</p>
+        <p>2. 如果忘记自己的 uid，请联系管理员</p>
+      </div>
     </div>
     return <Form
       name="basic"
